@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Mañana Saludable</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #dce8df;
+    display: flex;
+    justify-content: center;
+}
+
+.celular {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    background: #f5faf5;
+    padding: 20px;
+    box-shadow: 0 0 20px #0002;
+}
+
+header {
+    background: linear-gradient(135deg, #16834b, #6bc58b);
+    color: white;
+    padding: 25px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+header p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.fecha {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.progreso {
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px #0001;
+}
+
+.progreso h3 {
+    margin: 0;
+    color: #245b39;
+}
+
+.numero {
+    font-size: 30px;
+    color: #16834b;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.barra {
+    width: 100%;
+    height: 12px;
+    background: #e1e9e1;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.relleno {
+    width: 0%;
+    height: 100%;
+    background: #35a866;
+    transition: 0.4s;
+}
+
+h2 {
+    color: #245b39;
+    font-size: 19px;
+}
+
+.actividad {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 3px 8px #0001;
+    transition: 0.3s;
+}
+
+.actividad .emoji {
+    font-size: 30px;
+}
+
+.detalle {
+    flex: 1;
+}
+
+.detalle h3 {
+    font-size: 15px;
+    margin: 0 0 5px;
+    color: #245b39;
+}
+
+.detalle p {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.actividad input {
+    width: 23px;
+    height: 23px;
+    accent-color: #16834b;
+    cursor: pointer;
+}
+
+.completada {
+    background: #e5f6e9;
+}
+
+.completada h3 {
+    text-decoration: line-through;
+    color: #16834b;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #16834b;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #10673a;
+}
+
+.consejo {
+    background: #fff4d9;
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 20px;
+    color: #79551a;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 5px;
+    font-size: 12px;
+    color: #718174;
+}
+
+@media (max-width: 420px) {
+    .celular {
+        box-shadow: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="celular">
+
+    <!-- ENCABEZADO -->
+
+    <header>
+
+        <div class="fecha" id="fecha"></div>
+
+        <h1>🌞 ¡Buenos días!</h1>
+
+        <h2 style="color:white">
+            MI MAÑANA SALUDABLE
+        </h2>
+
+        <p>
+            Comienza tu día con energía, alegría
+            y buenos hábitos. ¡Hoy será un gran día!
+        </p>
+
+    </header>
+
+    <!-- PROGRESO DIARIO -->
+
+    <div class="progreso">
+
+        <h3>📊 MI PROGRESO DIARIO</h3>
+
+        <div class="numero" id="porcentaje">
+            0%
+        </div>
+
+        <div class="barra">
+
+            <div class="relleno" id="relleno"></div>
+
+        </div>
+
+        <p id="contador">
+            0 de 9 actividades completadas
+        </p>
+
+    </div>
+
+    <!-- LISTA DE RUTINAS -->
+
+    <h2>🌿 MIS RUTINAS DE LA MAÑANA</h2>
+
+    <div id="lista">
+
+        <!-- ACTIVIDAD 1 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🌅</div>
+
+            <div class="detalle">
+                <h3>1. Levantarse temprano</h3>
+
+                <p>
+                    Despertar con tiempo y comenzar
+                    el día sin prisas.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 2 -->
+
+        <div class="actividad">
+
+            <div class="emoji">💧</div>
+
+            <div class="detalle">
+                <h3>2. Beber agua</h3>
+
+                <p>
+                    Tomar un vaso de agua para
+                    hidratar el organismo.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 3 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🧘</div>
+
+            <div class="detalle">
+                <h3>3. Realizar estiramientos</h3>
+
+                <p>
+                    Dedicar unos minutos a mover
+                    suavemente el cuerpo.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 4 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🏋️</div>
+
+            <div class="detalle">
+                <h3>4. Hacer ejercicio</h3>
+
+                <p>
+                    Realizar ejercicios físicos para
+                    fortalecer el cuerpo.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 5 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🏃‍♂️</div>
+
+            <div class="detalle">
+                <h3>5. Correr por las mañanas</h3>
+
+                <p>
+                    Salir a correr entre 15 y 30 minutos,
+                    según tu condición física, para mejorar
+                    la resistencia y activar el cuerpo.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 6 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🚿</div>
+
+            <div class="detalle">
+                <h3>6. Aseo personal</h3>
+
+                <p>
+                    Ducharse, cepillarse los dientes
+                    y arreglarse.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 7 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🥗</div>
+
+            <div class="detalle">
+                <h3>7. Desayunar saludablemente</h3>
+
+                <p>
+                    Consumir frutas, cereales y
+                    alimentos nutritivos.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 8 -->
+
+        <div class="actividad">
+
+            <div class="emoji">📖</div>
+
+            <div class="detalle">
+                <h3>8. Leer o estudiar</h3>
+
+                <p>
+                    Leer un libro o aprender
+                    algo nuevo cada mañana.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+        <!-- ACTIVIDAD 9 -->
+
+        <div class="actividad">
+
+            <div class="emoji">🙏</div>
+
+            <div class="detalle">
+                <h3>9. Meditar y agradecer</h3>
+
+                <p>
+                    Dedicar unos minutos a la reflexión,
+                    tranquilidad y gratitud.
+                </p>
+            </div>
+
+            <input type="checkbox">
+
+        </div>
+
+    </div>
+
+    <!-- CONSEJO DEL DIA -->
+
+    <div class="consejo">
+
+        <strong>💡 CONSEJO DEL DÍA</strong>
+
+        <p>
+            Los buenos hábitos no se construyen
+            de un día para otro. Sé constante,
+            cuida tu salud y disfruta cada mañana.
+        </p>
+
+    </div>
+
+    <!-- BOTON REINICIAR -->
+
+    <button onclick="reiniciar()">
+        🔄 REINICIAR MIS ACTIVIDADES
+    </button>
+
+    <!-- PIE DE PAGINA -->
+
+    <footer>
+
+        MI MAÑANA SALUDABLE ❤️
+
+        <br><br>
+
+        Cuida tu cuerpo, alimenta tu mente
+        y vive mejor.
+
+    </footer>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// SELECCIONAR ACTIVIDADES
+
+const actividades = document.querySelectorAll(
+    '#lista input[type="checkbox"]'
+);
+
+// ACTUALIZAR PORCENTAJE
+
+function actualizarProgreso() {
+
+    let completadas = 0;
+
+    actividades.forEach((checkbox) => {
+
+        const tarjeta = checkbox.parentElement;
+
+        if (checkbox.checked) {
+
+            completadas++;
+
+            tarjeta.classList.add("completada");
+
+        } else {
+
+            tarjeta.classList.remove("completada");
+
+        }
+
+    });
+
+    let porcentaje = Math.round(
+        (completadas / actividades.length) * 100
+    );
+
+    document.getElementById("porcentaje").textContent =
+        porcentaje + "%";
+
+    document.getElementById("relleno").style.width =
+        porcentaje + "%";
+
+    document.getElementById("contador").textContent =
+        completadas + " de " + actividades.length +
+        " actividades completadas";
+
+    // GUARDAR ACTIVIDADES
+
+    localStorage.setItem(
+        "rutinas",
+        JSON.stringify(
+            Array.from(actividades).map(c => c.checked)
+        )
+    );
+
+}
+
+// REINICIAR ACTIVIDADES
+
+function reiniciar() {
+
+    if (confirm("¿Deseas reiniciar todas tus actividades?")) {
+
+        actividades.forEach(c => c.checked = false);
+
+        actualizarProgreso();
+
+    }
+
+}
+
+// RECUPERAR ACTIVIDADES GUARDADAS
+
+const guardadas = JSON.parse(
+    localStorage.getItem("rutinas") || "null"
+);
+
+if (guardadas) {
+
+    actividades.forEach((checkbox, indice) => {
+
+        checkbox.checked = guardadas[indice] || false;
+
+    });
+
+}
+
+// DETECTAR CAMBIOS EN LAS CASILLAS
+
+actividades.forEach(checkbox => {
+
+    checkbox.addEventListener(
+        "change",
+        actualizarProgreso
+    );
+
+});
+
+// MOSTRAR FECHA ACTUAL
+
+document.getElementById("fecha").textContent =
+
+    new Date().toLocaleDateString("es-PE", {
+
+        weekday: "long",
+
+        year: "numeric",
+
+        month: "long",
+
+        day: "numeric"
+
+    });
+
+// INICIAR PROGRESO
+
+actualizarProgreso();
+
+</script>
+
+</body>
+</html>
